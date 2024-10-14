@@ -262,7 +262,7 @@ class UserManagement(Frame):
                     self.prettytable_print.add_rows([[row_number, item.firstname, item.lastname, item.username,
                                                       item.email, f"{"Male" if item.gender_id == 1 else "Female"}",
                                                       item.age, item.country, item.city,
-                                                      f"{"Active" if item.active == 1 else "'Deactivate"}",
+                                                      f"{"Active" if item.active == 1 else "Deactivate"}",
                                                       f"{"Manager" if item.role_id == 1 else "Super Admin" if item.role_id == 2 else "Admin" if item.role_id == 3 else "Default User"}"]])
                     row_number += 1
                 file.write(str(self.prettytable_print))

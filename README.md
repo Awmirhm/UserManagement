@@ -4,28 +4,11 @@
 This is a backend-only user management system built using Python and the Model-View-Controller (MVC) architecture. It provides a command-line interface for managing user accounts, roles, and activity logs. The system uses two SQLite databases: one for user data (with tables for `users`, `roles`, and `genders`) and another for logging user activities (e.g., login/logout, function calls, and execution times). Four user roles are supported, each with different access levels, from Manager (full access) to Default User (limited access).
 
 ## Features
-- **User Authentication**:
-  - Register new users or log in with existing credentials.
-  - Validates input to prevent empty fields, incorrect credentials, or inactive accounts.
-- **Role-Based Access Control**:
-  - Four roles:
-    1. **Manager**: Full access, including viewing logs, activating/deactivating users, changing user roles (to Admin, Super Admin, or Default User), deleting users, and printing user data.
-    2. **Super Admin**: Access to user list, limited log access, and some user management features.
-    3. **Admin**: Access to user list with restricted permissions.
-    4. **Default User**: Can only view and edit their own profile.
-  - Manager, Super Admin, and Admin can view and sort the user list (by name, role, or gender), excluding the logged-in user.
-- **User Management**:
-  - View, edit, or delete user profiles (except the logged-in user’s profile).
-  - Activate or deactivate user accounts (Manager only).
-  - Change user roles (e.g., to Admin, Super Admin, or Default User; Manager only).
-  - Export user data to a text file and convert it to PDF using the "Print Table Data" button.
-  - Sort user list by name, role, or gender.
-- **Activity Logging**:
-  - Logs user actions (e.g., function name, execution date, duration, and user).
-  - Manager has full access to view all logs.
-  - Export logs to CSV and generate a graph based on execution times via the "Print Table Data" button.
-- **Profile Management**:
-  - All users can view and edit their own profile information via the "Your Profile" and "Edit Information" sections.
+- **User Authentication**: Register new users or log in with existing credentials. Validates input to prevent empty fields, incorrect credentials, or inactive accounts.
+- **Role-Based Access Control**: Four roles: 1. **Manager**: Full access, including viewing logs, activating/deactivating users, changing user roles (to Admin, Super Admin, or Default User), deleting users, and printing user data. 2. **Super Admin**: Access to user list, limited log access, and some user management features. 3. **Admin**: Access to user list with restricted permissions. 4. **Default User**: Can only view and edit their own profile. Manager, Super Admin, and Admin can view and sort the user list (by name, role, or gender), excluding the logged-in user.
+- **User Management**: View, edit, or delete user profiles (except the logged-in user’s profile). Activate or deactivate user accounts (Manager only). Change user roles (e.g., to Admin, Super Admin, or Default User; Manager only). Export user data to a text file and convert it to PDF using the "Print Table Data" button. Sort user list by name, role, or gender.
+- **Activity Logging**: Logs user actions (e.g., function name, execution date, duration, and user). Manager has full access to view all logs. Export logs to CSV and generate a graph based on execution times via the "Print Table Data" button.
+- **Profile Management**: All users can view and edit their own profile information via the "Your Profile" and "Edit Information" sections.
 - **Lightweight Database**: Two SQLite databases for user data and logs, requiring no external configuration.
 
 ## Tech Stack
@@ -41,93 +24,55 @@ This is a backend-only user management system built using Python and the Model-V
 
 ## Installation
 Follow these steps to set up and run the project locally:
+1. **Clone the Repository**: `git clone https://github.com/Awmirhm/UserManagement.git`
+2. **Navigate to the Project Directory**: `cd UserManagement`
+3. **Activate the Virtual Environment**:
+   - On Windows: `.venv\Scripts\activate`
+   - On macOS/Linux: `source .venv/bin/activate`
+   *Note*: The virtual environment (`.venv`) includes all required libraries.
+4. **Run the Application**: `python main.py`
+   This will start the user management system in your terminal.
 
-1. **Clone the Repository**:
-   ```bash
-   git clone https://github.com/Awmirhm/UserManagement.git
+## Usage
+1. **Sign Up/Login**: Choose "Register" to create a new account or "Login" to access an existing account. The system checks for valid input, correct credentials, and account status.
+2. **User Management**: Manager, Super Admin, and Admin can view the user list (sorted by name, role, or gender using the "Sort By" option). Manager can: Activate or deactivate user accounts using the "Activate" or "Deactivate" buttons. Change user roles (e.g., to Admin, Super Admin, or Default User) using the respective buttons. Delete user profiles using the "Delete User" button. Export user data to a text file and convert it to PDF using the "Print Table Data" button.
+3. **Activity Logging**: Manager can view all logs, including function name, execution date, duration, and user, via the Logs section. Export logs to CSV and generate a graph of execution times via the "Print Table Data" button.
+4. **Profile Management**: All users can view their profile (e.g., name, email, role) in the "Your Profile" section. Edit profile information (e.g., name, email, age, country) in the "Edit Information" section.
 
-Navigate to the Project Directory:
-bashcd UserManagement
+*Example Interaction*:
+Welcome to User Management System
 
-Activate the Virtual Environment:
-
-On Windows:
-bash.venv\Scripts\activate
-
-On macOS/Linux:
-bashsource .venv/bin/activate
-
-
-Note: The virtual environment (.venv) includes all required libraries.
-Run the Application:
-bashpython main.py
-This will start the user management system in your terminal.
-
-Usage
-
-Sign Up/Login:
-
-Choose "Register" to create a new account or "Login" to access an existing account.
-The system checks for valid input, correct credentials, and account status.
-
-
-User Management:
-
-Manager, Super Admin, and Admin can view the user list (sorted by name, role, or gender using the "Sort By" option).
-Manager can:
-
-Activate or deactivate user accounts using the "Activate" or "Deactivate" buttons.
-Change user roles (e.g., to Admin, Super Admin, or Default User) using the respective buttons.
-Delete user profiles using the "Delete User" button.
-Export user data to a text file and convert it to PDF using the "Print Table Data" button.
-
-
-
-
-Activity Logging:
-
-Manager can view all logs, including function name, execution date, duration, and user, via the Logs section.
-Export logs to CSV and generate a graph of execution times via the "Print Table Data" button.
-
-
-Profile Management:
-
-All users can view their profile (e.g., name, email, role) in the "Your Profile" section.
-Edit profile information (e.g., name, email, age, country) in the "Edit Information" section.
-
-
-
-Example Interaction:
-plaintextWelcome to User Management System
-1. Register
-2. Login
-3. Exit
+Register
+Login
+Exit
 Enter choice: 2
 Username: a.ri
 Password: 123
 Login successful! Role: Manager
----
+
+
 User Management Menu:
-1. View User List
-2. Your Profile
-3. Edit Information
-4. Activate/Deactivate User
-5. Change User Role
-6. Delete User
-7. Export User Data to PDF
-8. View Logs
-9. Export Logs to CSV
-10. Exit
-Test Credentials
+
+View User List
+Your Profile
+Edit Information
+Activate/Deactivate User
+Change User Role
+Delete User
+Export User Data to PDF
+View Logs
+Export Logs to CSV
+Exit
+
+text## Test Credentials
 For testing purposes, you can use the following credentials:
+- **Username**: `a.ri`
+- **Password**: `123`
+- **Role**: Manager (full access)
+*Note*: For security, avoid using default credentials in production. Consider hashing passwords (e.g., using `hashlib`) and storing sensitive data in a `.env` file.
 
-Username: a.ri
-Password: 123
-Role: Manager (full access)
-
-Note: For security, avoid using default credentials in production. Consider hashing passwords (e.g., using hashlib) and storing sensitive data in a .env file.
-Project Structure
-textUserManagement/
+## Project Structure
+UserManagement/
 ├── controllers/        # Handles business logic (MVC Controller)
 ├── models/             # Defines data structures and database interactions (MVC Model)
 ├── views/              # Manages command-line interface output (MVC View)
@@ -136,19 +81,19 @@ textUserManagement/
 ├── users.db            # SQLite database for user data (tables: users, roles, genders)
 ├── logs.db             # SQLite database for activity logs
 └── README.md           # Project documentation
-Contributing
+text## Contributing
 We welcome contributions to improve this project! To contribute:
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature/your-feature`).
+3. Commit your changes (`git commit -m 'Add some feature'`).
+4. Push to the branch (`git push origin feature/your-feature`).
+5. Open a pull request.
 
-Fork the repository.
-Create a new branch (git checkout -b feature/your-feature).
-Commit your changes (git commit -m 'Add some feature').
-Push to the branch (git push origin feature/your-feature).
-Open a pull request.
+Please read our [Contributing Guide](CONTRIBUTING.md) for more details (if available).
 
-Please read our Contributing Guide for more details (if available).
-License
-This project is licensed under the MIT License - see the LICENSE file for details.
-Contact
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-Author: Amir (Awmirhm)
-GitHub: Awmirhm
+## Contact
+- **Author**: Amir (Awmirhm)
+- **GitHub**: [Awmirhm](https://github.com/Awmirhm)

@@ -72,7 +72,7 @@ For testing purposes, you can use the following credentials:
 *Note*: For security, avoid using default credentials in production. Consider hashing passwords (e.g., using `hashlib`) and storing sensitive data in a `.env` file.
 
 ## Project Structure
-#UserManagement/
+# UserManagement/
 ├── controllers/
 ## Handles business logic (MVC Controller)
 ├── models/
@@ -88,7 +88,7 @@ For testing purposes, you can use the following credentials:
 ├── logs.db
 ## SQLite database for activity logs
 └── README.md
-# Project documentation
+## Project documentation
 ## Contributing
 We welcome contributions to improve this project! To contribute:
 1. Fork the repository.

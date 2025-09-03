@@ -1,27 +1,154 @@
-# This project is a user management application that has a three-layer architecture and all information is stored in the database.
+# User Management System
 
-### This application has a registration page and a login page.
+## Overview
+This is a backend-only user management system built using Python and the Model-View-Controller (MVC) architecture. It provides a command-line interface for managing user accounts, roles, and activity logs. The system uses two SQLite databases: one for user data (with tables for `users`, `roles`, and `genders`) and another for logging user activities (e.g., login/logout, function calls, and execution times). Four user roles are supported, each with different access levels, from Manager (full access) to Default User (limited access).
 
-*If the number of characters on the login page is less than one, it will give you an error, but if the number of
-characters is correct, but your username and password are not correct or not registered, it will give you an error. Then
-if your username and password are correct. But if your account is not active, it will give you an error that the account
-is inactive, otherwise, if everything is correct, you can enter the application.*
+## Features
+- **User Authentication**:
+  - Register new users or log in with existing credentials.
+  - Validates input to prevent empty fields, incorrect credentials, or inactive accounts.
+- **Role-Based Access Control**:
+  - Four roles:
+    1. **Manager**: Full access, including viewing logs, activating/deactivating users, changing user roles (to Admin, Super Admin, or Default User), deleting users, and printing user data.
+    2. **Super Admin**: Access to user list, limited log access, and some user management features.
+    3. **Admin**: Access to user list with restricted permissions.
+    4. **Default User**: Can only view and edit their own profile.
+  - Manager, Super Admin, and Admin can view and sort the user list (by name, role, or gender), excluding the logged-in user.
+- **User Management**:
+  - View, edit, or delete user profiles (except the logged-in user’s profile).
+  - Activate or deactivate user accounts (Manager only).
+  - Change user roles (e.g., to Admin, Super Admin, or Default User; Manager only).
+  - Export user data to a text file and convert it to PDF using the "Print Table Data" button.
+  - Sort user list by name, role, or gender.
+- **Activity Logging**:
+  - Logs user actions (e.g., function name, execution date, duration, and user).
+  - Manager has full access to view all logs.
+  - Export logs to CSV and generate a graph based on execution times via the "Print Table Data" button.
+- **Profile Management**:
+  - All users can view and edit their own profile information via the "Your Profile" and "Edit Information" sections.
+- **Lightweight Database**: Two SQLite databases for user data and logs, requiring no external configuration.
 
-#### There are 4 roles in this application. 1- Administrator 2- Super Admin 3- Admin 4- Default user , According to these roles, each person plays his role in the application.
+## Tech Stack
+- **Language**: Python 3.x
+- **Libraries**: Standard Python libraries (e.g., `sqlite3` for database operations, `csv` for log exports)
+- **Database**: SQLite (two databases: `users.db` for user data with tables `users`, `roles`, `genders`; `logs.db` for activity logs)
+- **Architecture**: Model-View-Controller (MVC)
+- **Environment**: Virtual environment (`.venv`)
 
-*The Manager, Super Admin and admin have access to a list of all users, except the normal user who does not have
-access to the list of users, but the person who is logged into the program is not displayed in this list, and even the
-list can be sorted by name and age. arranged the role and gender*
+## Prerequisites
+- Python 3.8 or higher installed on your system.
+- No external libraries are required, as the project uses Python's built-in libraries.
 
-*Every user can see his profile and edit the information if needed.*
+## Installation
+Follow these steps to set up and run the project locally:
 
-#### Also, the administrator has access to all the logs, and the logs contain information such as the name of the functions that perform the operation, the date of execution of that function, the duration of the function's completion, and the person who called that function.
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/Awmirhm/UserManagement.git
 
-## In the user and log management frames, there is a button with the name of print table data.
+Navigate to the Project Directory:
+bashcd UserManagement
 
-#### *In the user management frame, this button stores user information in a text file and then converts it to PDF.*
+Activate the Virtual Environment:
 
-#### *In frame logs, this button converts the information from the database to CSV and then shows you a graph based on the program execution time.*
+On Windows:
+bash.venv\Scripts\activate
 
-## 1- Manager Username = a.ri
-## 2- all password in data base = 123
+On macOS/Linux:
+bashsource .venv/bin/activate
+
+
+Note: The virtual environment (.venv) includes all required libraries.
+Run the Application:
+bashpython main.py
+This will start the user management system in your terminal.
+
+Usage
+
+Sign Up/Login:
+
+Choose "Register" to create a new account or "Login" to access an existing account.
+The system checks for valid input, correct credentials, and account status.
+
+
+User Management:
+
+Manager, Super Admin, and Admin can view the user list (sorted by name, role, or gender using the "Sort By" option).
+Manager can:
+
+Activate or deactivate user accounts using the "Activate" or "Deactivate" buttons.
+Change user roles (e.g., to Admin, Super Admin, or Default User) using the respective buttons.
+Delete user profiles using the "Delete User" button.
+Export user data to a text file and convert it to PDF using the "Print Table Data" button.
+
+
+
+
+Activity Logging:
+
+Manager can view all logs, including function name, execution date, duration, and user, via the Logs section.
+Export logs to CSV and generate a graph of execution times via the "Print Table Data" button.
+
+
+Profile Management:
+
+All users can view their profile (e.g., name, email, role) in the "Your Profile" section.
+Edit profile information (e.g., name, email, age, country) in the "Edit Information" section.
+
+
+
+Example Interaction:
+plaintextWelcome to User Management System
+1. Register
+2. Login
+3. Exit
+Enter choice: 2
+Username: a.ri
+Password: 123
+Login successful! Role: Manager
+---
+User Management Menu:
+1. View User List
+2. Your Profile
+3. Edit Information
+4. Activate/Deactivate User
+5. Change User Role
+6. Delete User
+7. Export User Data to PDF
+8. View Logs
+9. Export Logs to CSV
+10. Exit
+Test Credentials
+For testing purposes, you can use the following credentials:
+
+Username: a.ri
+Password: 123
+Role: Manager (full access)
+
+Note: For security, avoid using default credentials in production. Consider hashing passwords (e.g., using hashlib) and storing sensitive data in a .env file.
+Project Structure
+textUserManagement/
+├── controllers/        # Handles business logic (MVC Controller)
+├── models/             # Defines data structures and database interactions (MVC Model)
+├── views/              # Manages command-line interface output (MVC View)
+├── .venv/              # Virtual environment with required libraries
+├── main.py             # Entry point of the application
+├── users.db            # SQLite database for user data (tables: users, roles, genders)
+├── logs.db             # SQLite database for activity logs
+└── README.md           # Project documentation
+Contributing
+We welcome contributions to improve this project! To contribute:
+
+Fork the repository.
+Create a new branch (git checkout -b feature/your-feature).
+Commit your changes (git commit -m 'Add some feature').
+Push to the branch (git push origin feature/your-feature).
+Open a pull request.
+
+Please read our Contributing Guide for more details (if available).
+License
+This project is licensed under the MIT License - see the LICENSE file for details.
+Contact
+
+Author: Amir (Awmirhm)
+GitHub: Awmirhm

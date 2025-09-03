@@ -64,7 +64,7 @@ View Logs
 Export Logs to CSV
 Exit
 
-text## Test Credentials
+## Test Credentials
 For testing purposes, you can use the following credentials:
 - **Username**: `a.ri`
 - **Password**: `123`
@@ -73,14 +73,14 @@ For testing purposes, you can use the following credentials:
 
 ## Project Structure
 UserManagement/
-├── controllers/        # Handles business logic (MVC Controller)
-├── models/             # Defines data structures and database interactions (MVC Model)
-├── views/              # Manages command-line interface output (MVC View)
-├── .venv/              # Virtual environment with required libraries
-├── main.py             # Entry point of the application
-├── users.db            # SQLite database for user data (tables: users, roles, genders)
-├── logs.db             # SQLite database for activity logs
-└── README.md           # Project documentation
+├── controllers/# Handles business logic (MVC Controller)
+├── models/# Defines data structures and database interactions (MVC Model)
+├── views/# Manages command-line interface output (MVC View)
+├── .venv/# Virtual environment with required libraries
+├── main.py# Entry point of the application
+├── users.db# SQLite database for user data (tables: users, roles, genders)
+├── logs.db# SQLite database for activity logs
+└── README.md# Project documentation
 text## Contributing
 We welcome contributions to improve this project! To contribute:
 1. Fork the repository.

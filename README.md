@@ -73,15 +73,23 @@ For testing purposes, you can use the following credentials:
 
 ## Project Structure
 UserManagement/
-├── controllers/# Handles business logic (MVC Controller)
-├── models/# Defines data structures and database interactions (MVC Model)
-├── views/# Manages command-line interface output (MVC View)
-├── .venv/# Virtual environment with required libraries
-├── main.py# Entry point of the application
-├── users.db# SQLite database for user data (tables: users, roles, genders)
-├── logs.db# SQLite database for activity logs
-└── README.md# Project documentation
-text## Contributing
+├── controllers/
+# Handles business logic (MVC Controller)
+├── models/
+# Defines data structures and database interactions (MVC Model)
+├── views/
+# Manages command-line interface output (MVC View)
+├── .venv/
+# Virtual environment with required libraries
+├── main.py
+# Entry point of the application
+├── users.db
+# SQLite database for user data (tables: users, roles, genders)
+├── logs.db
+# SQLite database for activity logs
+└── README.md
+# Project documentation
+## Contributing
 We welcome contributions to improve this project! To contribute:
 1. Fork the repository.
 2. Create a new branch (`git checkout -b feature/your-feature`).
@@ -90,9 +98,6 @@ We welcome contributions to improve this project! To contribute:
 5. Open a pull request.
 
 Please read our [Contributing Guide](CONTRIBUTING.md) for more details (if available).
-
-## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Contact
 - **Author**: Amir (Awmirhm)

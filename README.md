@@ -72,21 +72,21 @@ For testing purposes, you can use the following credentials:
 *Note*: For security, avoid using default credentials in production. Consider hashing passwords (e.g., using `hashlib`) and storing sensitive data in a `.env` file.
 
 ## Project Structure
-UserManagement/
+#UserManagement/
 ├── controllers/
-# Handles business logic (MVC Controller)
+## Handles business logic (MVC Controller)
 ├── models/
-# Defines data structures and database interactions (MVC Model)
+## Defines data structures and database interactions (MVC Model)
 ├── views/
-# Manages command-line interface output (MVC View)
+## Manages command-line interface output (MVC View)
 ├── .venv/
-# Virtual environment with required libraries
+## Virtual environment with required libraries
 ├── main.py
-# Entry point of the application
+## Entry point of the application
 ├── users.db
-# SQLite database for user data (tables: users, roles, genders)
+## SQLite database for user data (tables: users, roles, genders)
 ├── logs.db
-# SQLite database for activity logs
+## SQLite database for activity logs
 └── README.md
 # Project documentation
 ## Contributing
